@@ -15,10 +15,11 @@ class ProdutoRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:3|max:100',
-            'preco' => 'required|numeric|min:0',
+            'preco' => 'required|numeric',
             'categoria_produto_id' => 'required|exists:categoria_produtos,id',
             'fornecedor_id' => 'required|exists:fornecedores,id',
         ];
+        
     }
 
     public function messages(): array

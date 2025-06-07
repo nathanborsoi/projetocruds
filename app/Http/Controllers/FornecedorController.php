@@ -19,8 +19,11 @@ class FornecedorController extends Controller
     }
 
     public function store(FornecedorRequest $request)
-    {
-        Fornecedor::create($request->validated());
+{
+    $data = $request->only(['nome', 'cnpj', 'email']); // <- ESSA LINHA É IMPORTANTE
+
+    $fornecedor = Fornecedor::create($data);
+
         return redirect()->route('fornecedores.index')->with('success', 'Fornecedor cadastrado com sucesso!');
     }
 

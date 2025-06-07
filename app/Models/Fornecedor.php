@@ -2,14 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Fornecedor extends Model
 {
-    protected $fillable = ['nome', 'email', 'telefone'];
+    use HasFactory;
+
+    // Nome correto da tabela
+    protected $table = 'fornecedores';
+
+    protected $fillable = ['nome', 'cnpj', 'email'];
 
     public function produtos()
-    {
-        return $this->hasMany(Produto::class);
-    }
+{
+    return $this->hasMany(Produto::class);
+}
 }
