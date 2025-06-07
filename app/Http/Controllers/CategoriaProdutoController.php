@@ -10,12 +10,12 @@ class CategoriaProdutoController extends Controller
     public function index()
     {
         $categorias = CategoriaProduto::all();
-        return view('categoria_produtos.index', compact('categorias'));
+        return view('categoria-produtos.index', compact('categorias'));
     }
 
     public function create()
     {
-        return view('categoria_produtos.create');
+        return view('categoria-produtos.create');
     }
 
     public function store(CategoriaProdutoRequest $request)
@@ -26,7 +26,7 @@ class CategoriaProdutoController extends Controller
 
     public function edit(CategoriaProduto $categoria_produto)
     {
-        return view('categoria_produtos.edit', compact('categoria_produto'));
+        return view('categoria-produtos.edit', ['categoria_produto' => $categoria_produto]);
     }
 
     public function update(CategoriaProdutoRequest $request, CategoriaProduto $categoria_produto)

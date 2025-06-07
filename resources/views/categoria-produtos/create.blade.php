@@ -5,7 +5,7 @@
     <h1>Nova Categoria de Produto</h1>
     <form action="{{ route('categoria-produtos.store') }}" method="POST">
         @csrf
-        @include('categoria_produtos.form')
+        @include('categoria-produtos.form')
     </form>
 </div>
 @endsection

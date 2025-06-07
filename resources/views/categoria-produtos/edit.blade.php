@@ -6,7 +6,7 @@
     <form action="{{ route('categoria-produtos.update', $categoria_produto) }}" method="POST">
         @csrf
         @method('PUT')
-        @include('categoria_produtos.form')
+        @include('categoria-produtos.form')
     </form>
 </div>
 @endsection

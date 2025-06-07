@@ -13,4 +13,4 @@ Route::get('/', function () {
 Route::resource('clientes', ClienteController::class);
 Route::resource('produtos', ProdutoController::class);
 Route::resource('categoria-produtos', CategoriaProdutoController::class);
-Route::resource('fornecedores', FornecedorController::class);
+Route::resource('fornecedors', FornecedorController::class);

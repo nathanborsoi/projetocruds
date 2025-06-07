@@ -10,37 +10,38 @@ class FornecedorController extends Controller
     public function index()
     {
         $fornecedores = Fornecedor::all();
-        return view('fornecedores.index', compact('fornecedores'));
+        return view('fornecedors.index', compact('fornecedores'));
     }
 
     public function create()
     {
-        return view('fornecedores.create');
+        return view('fornecedors.create');
     }
 
     public function store(FornecedorRequest $request)
-{
-    $data = $request->only(['nome', 'cnpj', 'email']); // <- ESSA LINHA É IMPORTANTE
+    {
+        $data = $request->only(['nome', 'cnpj', 'email']);
+        Fornecedor::create($data);
 
-    $fornecedor = Fornecedor::create($data);
-
-        return redirect()->route('fornecedores.index')->with('success', 'Fornecedor cadastrado com sucesso!');
+        return redirect()->route('fornecedors.index')->with('success', 'Fornecedor cadastrado com sucesso!');
     }
 
     public function edit(Fornecedor $fornecedor)
     {
-        return view('fornecedores.edit', compact('fornecedor'));
+        return view('fornecedors.edit', compact('fornecedor'));
     }
 
     public function update(FornecedorRequest $request, Fornecedor $fornecedor)
     {
         $fornecedor->update($request->validated());
-        return redirect()->route('fornecedores.index')->with('success', 'Fornecedor atualizado com sucesso!');
+
+        return redirect()->route('fornecedors.index')->with('success', 'Fornecedor atualizado com sucesso!');
     }
 
     public function destroy(Fornecedor $fornecedor)
     {
         $fornecedor->delete();
-        return redirect()->route('fornecedores.index')->with('success', 'Fornecedor removido com sucesso!');
+
+        return redirect()->route('fornecedors.index')->with('success', 'Fornecedor removido com sucesso!');
     }
 }
